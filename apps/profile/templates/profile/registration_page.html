@@ -1,0 +1,32 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{% block custom_css %}
+    {{ block.super }}
+
+{% endblock %}
+
+{% block blockbody %}
+    <section class="main_block wrap_2">
+        <h1>Welcome to the Register Page</h1>
+        <p>This is the content of your register page.</p>
+
+        <div class="fields">
+            <form method="post">
+                {% csrf_token %}
+                 {% for form_field in form %}
+                    <div class="field-div">
+                        {{ form_field.label_tag }}
+                        {{ form_field }}
+                    {{ form_field.errors }}
+                    </div>
+                {% endfor %}
+                <input type="submit" class="btn_v1" value="{% trans "Registration" %}">
+            </form>
+        </div>
+
+        <div class=""><a href="{% url 'login' %}">{% trans "Already have an account?" %}</a></div>
+    </section>
+{% endblock %}

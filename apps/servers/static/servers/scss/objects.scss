@@ -1,0 +1,141 @@
+.model_page {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .pages_menu {
+    display: flex;
+    justify-content: space-between;
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+
+      .filter_button, .sorting_button {
+        display: flex;
+        gap: 5px;
+      }
+
+    }
+  }
+
+  .object_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .object {
+      border-radius: 10px;
+      border: var(--sekondary-border);
+      box-sizing: border-box;
+      width: 200px;
+      padding: 0 10px;
+      height: 56px;
+      gap: 10px;
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+
+      .object_name {
+        max-width: 100px;
+        overflow: hidden;
+        font-weight: 700;
+
+        color: var(--accent-color);
+      }
+
+      .edit_and_delete {
+        display: flex;
+        gap: 10px;
+
+        .open_modal_edit {
+          background: var(--edit-color);
+        }
+
+        .open_modal_delete {
+          background: var(--delete-color);
+        }
+
+        .open_modal_delete, .open_modal_edit {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .open_modal_add{
+    color: var(--add_green_color);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
+
+.no_objects {
+
+  width: fit-content;
+  min-width: 400px;
+  min-height: 400px;
+  padding: 40px 110px;
+  border: var(--main-border);
+  border-radius: 50px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  left: 50%;
+  align-items: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .title {
+    color: var(--accent-color);
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+
+  .fields_wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .fields {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin-bottom: 30px;
+
+      .field-div {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        input, select {
+          height: 40px;
+          width: 233px;
+          border-radius: 2px;
+          border: 1px solid #D0D0D0;
+
+
+        }
+      }
+
+    }
+
+
+  }
+
+
+}
+

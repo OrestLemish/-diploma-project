@@ -1,0 +1,45 @@
+{% load i18n %}
+<nav class="menu_main">
+    <div class="header_menu">
+        <div class="logo_block">
+            <img src="/media/icons/logo_icon.svg" alt="{% trans "ISB System" %}">
+        </div>
+        {% if user.is_authenticated %}
+            <div class="profile_block">
+                {{ user.username }}
+                <a href="{% url 'login' %}">{% trans "Go to personal account" %}</a>
+            </div>
+            <a class="exit_block">
+                <img src="/media/icons/exit_icon.svg" alt="{% trans "logout" %}">{% trans "logout" %}
+            </a>
+        {% endif %}
+    </div>
+
+          <div class="menu_wrapper">
+                <div class="sub_menu">
+                    <a class="main_par" href="{% url 'servers' %}">{% trans "Servers" %}</a>
+                    <div class="sub_pars">
+                        <a href="{% url 'servers' %}">{% trans "Servers list" %}</a>
+                        <a href="{% url 'credentials' %}">{% trans "Authorization data" %}</a>
+                        <a href="{% url 'locations' %}">{% trans "Locations" %}</a>
+                        <a href="{% url 'groups' %}">{% trans "Servers groups" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "---In the servers---" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Task scheduler" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "MySQL manager" %}</a>
+                    </div>
+                </div>
+                <div class="sub_menu">
+                    <a class="main_par" href="{% url 'servers' %}">{% trans "Other hosting" %}</a>
+                    <div class="sub_pars">
+                        <a href="{% url 'servers' %}">{% trans "Hetzner" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Amazon" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Digital Ocean" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Google Clouds" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Zone settings (DNS)" %}</a>
+                        <a href="{% url 'servers' %}">{% trans "Servers" %}</a>
+                    </div>
+                </div>
+            </div>
+
+</nav>
+{% include "profile/includes/modals/modal_logout.html" %}

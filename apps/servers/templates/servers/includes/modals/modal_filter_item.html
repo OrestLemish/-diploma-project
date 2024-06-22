@@ -1,0 +1,29 @@
+{% load i18n %}
+{# СТИЛІ Підключаю там де викликаєтся модалка#}
+<div class="modal_overlay">
+    <div class="modal">
+        <div class="modal_title">
+            <img src="/media/icons/filter_icon.svg" alt="{% trans "filter" %}">
+            {% trans "filter" %}
+        </div>
+        <div class="fields">
+            {% for form_field in form %}
+                <div class="field-div">
+                    {{ form_field.label_tag }}
+                    {{ form_field }}
+                </div>
+            {% endfor %}
+        </div>
+        <div class="buttons">
+            <div class="modal_submit_add btn_v1">
+                {% trans "Accept" %}
+            </div>
+            <div class="modal_cancel btn_v2">
+                {% trans "cancel" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

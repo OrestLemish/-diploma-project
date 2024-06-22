@@ -1,0 +1,54 @@
+{% load compress %}
+
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <title></title>
+
+    {% compress css %}
+        {% block custom_css %}
+            <style>
+                @font-face {
+                    font-family: "Sofia Sans";
+                    src: url("{% static 'fonts/SofiaSans-VariableFont_wght.ttf' %}") format("truetype");
+                    font-style: normal;
+                    font-weight: normal;
+                }
+            </style>
+
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'mainapp/scss/root.scss' %}">
+            <link rel="stylesheet" type="text/x-scss" href="{% static 'mainapp/scss/mainapp.scss' %}">
+
+        {% endblock %}
+    {% endcompress %}
+</head>
+
+<body>
+{% csrf_token %}
+<div class="main_container">
+    {% include "mainapp/includes/menu_main.html" %}
+    <main>
+        <div class="content">
+              {% block blockbody %}{% endblock %}
+        </div>
+    </main>
+</div>
+</body>
+
+{% compress js %}
+    <script src="{% static 'modules/jquery/jquery_3.2.1.min.js' %}"></script>
+    {% block module_script %}
+
+    {% endblock %}
+
+
+    {% block custom_js %}
+
+        <script src="{% static 'profile/js/profile.js' %}"></script>
+
+    {% endblock %}
+{% endcompress %}
+
+</html>

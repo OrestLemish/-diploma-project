@@ -1,0 +1,28 @@
+{% load i18n %}
+<div class="server {% if server.disk >= 50 %}full_size{% else %}half_size{% endif %}">
+    <div class="top_section">
+        <div class="name_and_status">
+            <div class="server_name">
+                {{ server.name }}
+            </div>
+            <span>
+            {% if server.is_active == True %}
+                <img src="/media/icons/online_icon.svg" alt="{% trans "online" %}"> {% trans "online" %}
+            {% else %}
+                <img src="/media/icons/offline_icon.svg" alt="{% trans "offline" %}"> {% trans "offline" %}
+            {% endif %}
+        </span>
+
+
+
+        </div>
+        <a href='{{ server.get_absolute_url }}' class="server_detail">
+            Servers detail
+        </a>
+
+    </div>
+
+    {% include "servers/includes/server_disks.html" %}
+
+
+</div>

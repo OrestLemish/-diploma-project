@@ -1,0 +1,14 @@
+{% load i18n %}
+<div class="modal_logout modal_overlay modal_logout_cancel">
+    <div class="modal">
+        <div class="modal_title">
+            {% trans "you_want_exit" %}
+        </div>
+        <div class="buttons">
+            <a href="{% url 'logout' %}">{% trans "exit" %}</a>
+            <div class="modal_logout_cancel btn_v2">
+                {% trans "cancel" %}
+            </div>
+        </div>
+    </div>
+</div>

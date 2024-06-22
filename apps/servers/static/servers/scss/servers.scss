@@ -1,0 +1,120 @@
+
+.servers_page {
+  .servers {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 20px;
+
+    .server {
+      padding: 25px;
+      border-radius: 30px;
+      border: var(--sekondary-border);
+      border-width: 5px;
+      box-sizing: border-box;
+
+      &.half_size {
+        width: calc(50% - 10px);
+
+        .disks_part {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+
+      &.full_size {
+        width: 100%;
+
+        .disks_part {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+      }
+
+      .disks_part {
+        display: grid;
+
+        grid-template-rows: repeat(2, 1fr);
+        gap: 50px;
+        grid-auto-flow: column;
+
+        .disk {
+          display: flex;
+          gap: 15px;
+
+          .disk_percentage {
+            display: block;
+            max-height: 60px;
+
+            @keyframes progress {
+              0% {
+                stroke-dasharray: 100 0;
+              }
+            }
+
+            .circle-bg {
+              fill: none;
+              stroke-width: 6.1;
+              animation: progress 1s ease-out forwards;
+              stroke: var(--disk-free-space);
+            }
+
+            .circle {
+              fill: none;
+              stroke-width: 6;
+
+
+              &.red {
+                stroke: var(--disk-red);
+              }
+
+              &.blue {
+                stroke: var(--disk-blue);
+              }
+            }
+
+          }
+
+          .disk_info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+
+            .occupied_space {
+              .space_square {
+                background: var(--disk-red);
+
+              }
+            }
+
+            .free_space {
+              .space_square {
+                background: var(--disk-blue);
+              }
+            }
+
+            .free_space, .occupied_space {
+              display: flex;
+              gap: 9px;
+
+              .space_square {
+                width: 13px;
+                height: 13px;
+                border-radius: 5px;
+              }
+            }
+
+          }
+
+
+        }
+
+      }
+    }
+  }
+
+
+}
+
+
+

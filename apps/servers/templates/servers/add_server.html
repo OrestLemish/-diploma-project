@@ -1,0 +1,43 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{% block custom_css %}
+    {{ block.super }}
+
+{#    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/add_server.scss' %}">#}
+{% endblock %}
+
+{% block blockbody %}
+    {#Якщо сервери є то виводимо сторінку таку, якщо таку то ні#}
+    <div class="main_block add_server">
+        <div class="title">
+            {% trans "Add server" %}
+        </div>
+        <form class="fields_wrapper" method="post">
+            {% csrf_token %}
+
+            <div class="fields">
+                 {% for form_field in form %}
+                    <div class="field-div">
+                        {{ form_field.label_tag }}
+                        {{ form_field }}
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <input type="submit" class="btn_v1" value="{% trans "Add server" %}">
+        </form>
+
+    </div>
+
+{% endblock %}
+
+{% comment %}
+{% block custom_js %}
+    {{ block.super }}
+    <script src="{% static 'servers/js/servers.js' %}"></script>
+
+{% endblock %}{% endcomment %}

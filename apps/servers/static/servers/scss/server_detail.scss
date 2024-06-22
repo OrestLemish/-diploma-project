@@ -1,0 +1,56 @@
+
+textarea {
+  max-width: 500px;
+  max-height: 150px;
+}
+
+
+.head_server_detail {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+
+  .button {
+    max-width: 200px;
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  img {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+
+.server_detail {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  .fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px 20px;
+    padding-bottom: 20px;
+
+    .field-div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .standard_commands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+
+

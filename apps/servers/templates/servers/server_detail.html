@@ -1,0 +1,132 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{% block custom_css %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/server_detail.scss' %}">
+{% endblock %}
+
+{% block blockbody %}
+    <section class="section_head_server_detail">
+        <div class="head_server_detail">
+            <div class="info_title">
+                <div>{{ server.name }}</div>
+                <span>
+            {% if server.is_active == True %}
+                <img src="/media/icons/online_icon.svg" alt="{% trans "online" %}"> {% trans "online" %}
+            {% else %}
+                <img src="/media/icons/offline_icon.svg" alt="{% trans "offline" %}"> {% trans "offline" %}
+            {% endif %}
+        </span>
+            </div>
+            <div class="buttons">
+                <div class="check_server button btn_v5">
+                    <img src="/media/icons/delete_icon.svg" alt="{% trans "check" %}">{% trans "check " %}{{ server.name }}
+                </div>
+                <div class="button btn_v4">
+                    <img src="/media/icons/delete_icon.svg" alt="{% trans "delete" %}">{% trans "Delete " %}{{ server.name }}
+                </div>
+                <div class="button btn_v1">
+                    <img src="/media/icons/terminal_icon.svg" alt="{% trans "open terminal" %}">{% trans "Open terminal" %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="server_detail" data-server_id="{{ server.id }}">
+
+        <div class="information_block">
+            <div class="title">
+                {% trans "Інформація про сервер" %}
+            </div>
+
+
+            <div class="fields">
+                <div class="field-div">
+                    {{ form.name.label_tag }}
+                    {{ form.name }}
+                </div>
+                <div class="field-div">
+                    {{ form.system_name.label_tag }}
+                    {{ form.system_name }}
+                </div>
+                <div class="field-div">
+                    {{ form.ip_address.label_tag }}
+                    {{ form.ip_address }}
+                </div>
+                <div class="field-div">
+                    {{ form.port.label_tag }}
+                    {{ form.port }}
+                </div>
+                <div class="field-div">
+                    {{ form.server_group.label_tag }}
+                    {{ form.server_group }}
+                </div>
+                <div class="field-div">
+                    {{ form.server_location.label_tag }}
+                    {{ form.server_location }}
+                </div>
+                <div class="field-div">
+                    {{ form.packet_name.label_tag }}
+                    {{ form.packet_name }}
+                </div>
+                <div class="field-div">
+                    {{ form.cpu.label_tag }}
+                    {{ form.cpu }}
+                </div>
+                <div class="field-div">
+                    {{ form.ram.label_tag }}
+                    {{ form.ram }}
+                </div>
+                <div class="field-div">
+                    {{ form.price.label_tag }}
+                    {{ form.price }}
+                </div>
+
+            </div>
+            <div class="buttons">
+                <div class="button btn_v3 ">
+                    <img src="/media/icons/edit_icon.svg" alt="{% trans "Edit" %}">
+                    {% trans "Edit" %}
+                </div>
+            </div>
+        </div>
+        {% if commands_list %}
+            <div class="standard_commands">
+
+                {% for command in commands_list %}
+                    <div data-command_text="{{ command.0 }}" class="btn_v5 standard_command open_modal_standard_command_execute">
+                        {{ command.1 }}
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="command_execution_part">
+
+            <label>
+                <textarea class="command_area"></textarea>
+            </label>
+            <div class="open_modal_command_execute">
+                {% trans "execute" %}
+            </div>
+
+        </div>
+    </section>
+
+    {% for credential in server.server_credentials.all %}
+        <div class="auth_data" data-server_id="{{ server.id }}" data-auth_data="{{ credential.id }}">
+            {{ credential }}
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block custom_js %}
+    {{ block.super }}
+    <script src="{% static 'servers/js/servers.js' %}"></script>
+    <script src="{% static 'servers/js/modal.js' %}"></script>
+
+{% endblock %}

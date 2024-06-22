@@ -1,0 +1,66 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{% block custom_css %}
+    {{ block.super }}
+{#    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/modal.scss' %}">#}
+    {#    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/modal_delete.scss' %}">#}
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/objects.scss' %}">
+{% endblock %}
+
+{% block blockbody %}
+
+    {% if objects %}
+        <section class="model_page wrap_1">
+            <div class="pages_menu">
+                <h1 class="page_title">
+                    {% trans "list_of" %} {{ model_name }}
+                </h1>
+                <div class="buttons">
+                    <div class="filter_button btn_v2">
+                        <img src="/media/icons/filter_icon.svg" alt="{% trans "filter" %}">
+                        {% trans "filter" %}
+                    </div>
+                    <div class="sorting_button btn_v2">
+                        <img src="/media/icons/sorting_icon.svg" alt="{% trans "sorting" %}">
+                        {% trans "sorting" %}
+                    </div>
+                </div>
+            </div>
+            <div class="object_list">
+                {% for object in objects %}
+                    <div class="object">
+                        <div class="object_name">
+                            {{ object }}
+                        </div>
+                        <div class="edit_and_delete">
+                            <div class="open_modal_edit" data-object_id="{{ object.id }}" data-model_name="{{ model_name }}">
+                                <img src="/media/icons/edit_icon.svg" alt="{% trans "edit" %}">
+                            </div>
+                            <div class="open_modal_delete" data-object_id="{{ object.id }}" data-model_name="{{ model_name }}">
+                                <img src="/media/icons/delete_icon.svg" alt="{% trans "delete" %}">
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="open_modal_add" data-model_name = "{{ model_name }}">
+                <img src="/media/icons/add_icon.svg" alt="{% trans "add" %}">{% trans "add_" %} {{ model_name }}
+            </div>
+        </section>
+    {% else %}
+        <div class="no_objects main_block">
+            <div class="title">{% trans "Add a object to get started with it" %}</div>
+            <div class="open_modal_add" data-model_name="{{ model_name }}">
+                <img src="/media/icons/add_icon.svg" alt="{% trans "add" %}">{% trans "add_" %} {{ model_name }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block custom_js %}
+    {{ block.super }}
+    <script src="{% static 'servers/js/modal.js' %}"></script>
+{% endblock %}

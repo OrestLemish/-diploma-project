@@ -1,0 +1,63 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{% block custom_css %}
+    {{ block.super }}
+
+    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/servers.scss' %}">
+{% endblock %}
+
+{% block blockbody %}
+    {#Якщо сервери є то виводимо сторінку таку, якщо таку то ні#}
+    {% if servers %}
+
+        <section class="servers_page model_page wrap_1">
+            <div class="pages_menu">
+                <a class="add_server" href="{% url "add_server" %}">{% trans 'Add server' %}</a>
+                <div class="buttons">
+                     <div class="check_server button btn_v5">
+                <img src="/media/icons/delete_icon.svg" alt="{% trans "check" %}">{% trans "check " %}{{ server.name }}
+            </div>
+                    <div class="filter_button btn_v2">
+                        <img src="/media/icons/filter_icon.svg" alt="{% trans "filter" %}">
+                        {% trans "filter" %}
+                    </div>
+                    <div class="sorting_button btn_v2">
+                        <img src="/media/icons/sorting_icon.svg" alt="{% trans "sorting" %}">
+                        {% trans "sorting" %}
+                    </div>
+                </div>
+            </div>
+            <div class="servers">
+                {% for server in servers %}
+                    {% include "servers/includes/server_min.html" %}
+                {% endfor %}
+            </div>
+
+
+        </section>
+
+
+
+        {#Якщо ні то виводимо#}
+    {% else %}
+
+        <div class="no_server main_block">
+            <div class="title">{% trans "Add a server to get started with it" %}</div>
+            {#Кнопка для відкриття модального вікна#}
+            <a href="{% url "add_server" %}" class="btn_v1">{% trans 'Add server' %}</a>
+        </div>
+
+
+    {% endif %}
+
+
+{% endblock %}
+
+{% block custom_js %}
+    {{ block.super }}
+    <script src="{% static 'servers/js/servers.js' %}"></script>
+
+{% endblock %}

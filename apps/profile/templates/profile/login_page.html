@@ -1,0 +1,30 @@
+{% extends 'wrapper.html' %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+
+{#{% block custom_css %}#}
+{#    {{ block.super }}#}
+{##}
+    {#    <link rel="stylesheet" type="text/x-scss" href="{% static 'servers/scss/add_server.scss' %}">#}
+{#{% endblock %}#}
+
+{% block blockbody %}
+    <section class="login_page wrap_2">
+        <h1>Welcome to the Login Page</h1>
+        <p>This is the content of your login page.</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Log In</button>
+        </form>
+    <div class=""><a href="{% url 'registration' %}">{% trans "Does not have account?" %}</a></div>
+    </section>
+{% endblock %}
+
+{#{% block custom_js %}#}
+{#    {{ block.super }}#}
+{#    <script src="{% static 'servers/js/servers.js' %}"></script>#}
+{##}
+{#{% endblock %}#}

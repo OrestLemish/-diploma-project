@@ -1,0 +1,20 @@
+{% load i18n %}
+{# СТИЛІ Підключаю там де викликаєтся модалка#}
+<div class="modal_overlay ">
+    <div class="modal">
+        <label>
+            <textarea class="command_area_modal">{{ command_text }}</textarea>
+        </label>
+        <div class="buttons">
+            <div class="modal_submit_exec_command btn_v1">
+                {% trans "execute" %}
+            </div>
+            <div class="modal_cancel btn_v2">
+                {% trans "cancel" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

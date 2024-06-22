@@ -1,0 +1,35 @@
+{% load i18n %}
+{# СТИЛІ Підключаю там де викликаєтся модалка#}
+<div class="modal_overlay ">
+    <div class="modal command_modal">
+        <label>
+            <textarea hidden class="command_area_modal">{{ command_text }}</textarea>
+        </label>
+        <div class="fields">
+            <form id="exec_standard_command_form">
+                {% for missing_argument in missing_arguments %}
+                    <div class="field-div">
+                        <label for="id_{{ missing_argument }}">{{ missing_argument }}:</label>
+                        <input type="text" name="{{ missing_argument }}" id="id_{{ missing_argument }}">
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
+        {% if hint %}
+            <div class="hint">
+                {{ hint }}
+            </div>
+        {% endif %}
+        <div class="buttons">
+            <div class="modal_submit_exec_standard_command btn_v1">
+                {% trans "execute" %}
+            </div>
+            <div class="modal_cancel btn_v2">
+                {% trans "cancel" %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

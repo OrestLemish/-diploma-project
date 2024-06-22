@@ -1,0 +1,29 @@
+{% load i18n %}
+<div class="modal_overlay modal_cancel">
+    <div class="modal">
+        <div class="modal_title">
+            {% trans "edit_" %}{{ model_name }}
+        </div>
+        <div class="fields">
+
+            <form id="edit_form">
+                {% for form_field in form %}
+                    <div class="field-div">
+                        {{ form_field.label_tag }}
+                        {{ form_field }}
+                    </div>
+                {% endfor %}
+            </form>
+
+        </div>
+
+        <div class="buttons">
+            <div class="modal_submit_edit btn_v1" data-object_id="{{ object_id }}" data-model_name="{{ model_name }}">
+                {% trans "edit" %}
+            </div>
+            <div class="modal_cancel btn_v2">
+                {% trans "cancel" %}
+            </div>
+        </div>
+    </div>
+</div>

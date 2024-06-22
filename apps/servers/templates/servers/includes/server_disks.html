@@ -1,0 +1,133 @@
+{% load i18n %}
+<div class="disks_part">
+        {% if server.disk >= 50 %}
+            <div class="disk">
+                <svg viewBox="-1 -1 38 38" class="disk_percentage">
+                    <path class="circle blue"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    <path class="circle-bg" stroke-dasharray="30, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+
+                </svg>
+                <div class="disk_info">
+                    <div class="disk_space"> {% trans "disk_space" %}</div>
+                    <div class="occupied_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "occupied" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                    <div class="free_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "free" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="disk">
+                <svg viewBox="-1 -1 38 38" class="disk_percentage">
+                    <path class="circle blue"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    <path class="circle-bg" stroke-dasharray="30, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+
+                </svg>
+                <div class="disk_info">
+                    <div class="disk_space"> {% trans "disk_space" %}</div>
+                    <div class="occupied_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "occupied" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                    <div class="free_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "free" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="disk">
+                <svg viewBox="-1 -1 38 38" class="disk_percentage">
+                    <path class="circle blue"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    <path class="circle-bg" stroke-dasharray="70, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+
+                </svg>
+                <div class="disk_info">
+                    <div class="disk_space"> {% trans "disk_space" %}</div>
+                    <div class="occupied_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "occupied" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                    <div class="free_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "free" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="disk">
+                <svg viewBox="-1 -1 38 38" class="disk_percentage">
+                    <path class="circle blue"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    <path class="circle-bg" stroke-dasharray="50, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+
+                </svg>
+                <div class="disk_info">
+                    <div class="disk_space"> {% trans "disk_space" %}</div>
+                    <div class="occupied_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "occupied" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                    <div class="free_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "free" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                </div>
+            </div>
+        {% else %}
+
+
+            <div class="disk">
+                <svg viewBox="-1 -1 38 38" class="disk_percentage">
+                    <path class="circle blue"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                    <path class="circle-bg" stroke-dasharray="90, 100"
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+
+                </svg>
+                <div class="disk_info">
+                    <div class="disk_space"> {% trans "disk_space" %}</div>
+                    <div class="occupied_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "occupied" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                    <div class="free_space">
+                        <div class="space_square"></div>
+                        <div class="space_text"> {% trans "free" %}:</div>
+                        <div class="space_number">{{ server.disk }} {% trans "GB" %}</div>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+
+    </div>
